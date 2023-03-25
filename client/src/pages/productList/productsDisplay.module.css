@@ -1,0 +1,19 @@
+.display_options{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.display_options h4{
+    text-transform: capitalize;
+    font-size: 20px;
+}
+.products_filtering,
+.products_sizing,
+.products_sizing{
+    margin:0 15px;
+    padding: 5px 10px;
+    font-size: 15px;
+    text-transform: capitalize;
+    letter-spacing: 1.1px;
+}

@@ -1,0 +1,99 @@
+.offer{
+    background-color: teal;
+    width: 100%;
+
+}
+.offer p{
+    font-size: 14px;
+    color: white;
+    padding: 5px;
+    margin: 0;
+    box-sizing: border-box;
+}
+.navbar{
+    z-index: 10000;
+    border-bottom: .5px solid #1d1d1d27;
+}
+.navLeft {
+    display: flex;
+    align-items: center;
+}
+.navLeft span{
+    cursor: pointer;
+}
+
+input {
+    margin-left: 15px;
+    border: .5px solid #1111116e;
+    border-radius: 5px;
+    padding: 1px 10px;
+}
+
+.navLeft i {
+    position: absolute;
+    right: 10px;
+    top: 6px;
+    color: #111;
+    z-index: 3;
+}
+
+.navCenter span {
+    text-align: center;
+letter-spacing: 5px;
+    font-size: 25px;
+    color: teal;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+.navRight{
+    /* margin-left: auto; */
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.navRight a{
+    text-decoration: none;
+    margin:5px 10px;
+    color: #111;
+    text-transform: uppercase;
+}
+
+.wishlist_Container,
+.cart_Container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin:0px;
+}
+.cart,
+.wishlist {
+    font-size: 28px;
+    cursor: pointer;
+}
+.wishlist{
+    color: rgb(255, 115, 115);
+    cursor: pointer;
+    margin-bottom: px;
+
+}
+.cart{
+    color: rgb(255, 115, 115);
+
+}
+.cartIcon{
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: rgb(41, 33, 160);
+    border-radius: 50%;
+    right: -3px;
+    transform: translate(50%,-50%);
+    opacity: .8;
+    top: -3px;
+    color: #ffffff;
+    font-size: 17px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

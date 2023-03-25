@@ -1,0 +1,132 @@
+@media screen and (min-width: 480px) {
+    .upper input{
+        width: 40%;
+    }
+    
+}
+
+@media screen and (max-width: 600px) {
+
+    .upper input{
+        width: 70%;
+
+    }
+    
+    
+
+}
+
+.footer {
+    background-color: rgb(252, 245, 245);
+    margin-top: 20px;
+    padding: 20px;
+}
+
+
+.upper {
+    background-color: rgb(252, 245, 245);
+    padding: 50px
+}
+.upper h2{
+    text-transform: capitalize;
+    font-size: 3.3rem;
+    font-weight: 600;
+}
+.upper p{
+    text-transform: capitalize;
+    font-size: 1.2rem;
+    font-weight: 100;
+}
+.upper input{
+    padding:4px 10px;
+    border: 1px solid #6e6e6e;
+    border-radius: 0%;
+}
+.icon_container{
+    background-color: teal;
+    width: 65px;
+    height: 35px ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.upper i{
+    font-size: 19px;
+color: #fff;
+}
+
+.down {
+    background-color: #fff;
+    padding: 30px 10px;
+}
+
+.right_part {
+    text-align: start;
+}
+
+.right_part h3 {
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 2.2rem;
+    letter-spacing: 1.6px;
+}
+
+.right_part p {
+    text-transform: capitalize;
+    font-size: 1.1rem;
+}
+
+.icons {
+    display: flex;
+
+}
+
+.icons i {
+    font-size: 30px;
+    margin: 0px 10px;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    padding: 9px;
+    color: #fff;
+}
+
+.icons .facebook {
+    background-color: rgb(59, 89, 153);
+}
+
+.icons .instagram {
+    background-color: rgb(228, 64, 95);
+}
+
+.icons .twitter {
+    background-color: rgb(85, 172, 238);
+}
+
+.icons .pinterest {
+    background-color: rgb(230, 0, 35);
+}
+.center_part{
+    text-align: left;
+}
+.center_part h4,
+.left_part h4{
+    text-transform: capitalize;
+    font-weight: 700;
+    font-size: 1.8rem;
+    letter-spacing: 1.6px;
+    margin-bottom: 15px;
+}
+.center_part p{
+    text-transform: capitalize;
+    font-size: 1rem;
+    margin: 5px 0px;
+}
+.left_part{
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
