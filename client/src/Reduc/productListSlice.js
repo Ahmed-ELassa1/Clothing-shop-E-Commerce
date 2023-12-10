@@ -1,16 +1,15 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
-import { useParams } from 'react-router-dom';
-
-
 
 export let getProducts = createAsyncThunk(
   "productList/categories",
-  async (id=1) => {
-    let  {data}  = await axios.get(
-      `https://api.escuelajs.co/api/v1/categories/${id}/products`
-    );
-    return data;
+  async (id = 1) => {
+    try {
+      let { data } = await axios.get(`${window.location.origin}/data/Products.json`);
+      return data;
+    } catch (error) {
+      throw error;
+    }
   }
 );
 
@@ -20,8 +19,8 @@ let productSlice = createSlice({
   name: "productList",
   initialState: initialState,
   extraReducers: (builder) => {
-    builder.addCase(getProducts.fulfilled, (state, actions) => {
-      state.productList = actions.payload;
+    builder.addCase(getProducts.fulfilled, (state, action) => {
+      state.productList = action.payload;
     });
   },
 });

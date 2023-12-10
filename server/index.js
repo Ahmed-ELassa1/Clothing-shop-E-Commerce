@@ -27,7 +27,6 @@ app.post("/payment", cors(), async (req, res)=>{
             confirm: true
         })
 
-        console.log("Payment", payment)
         res.json({
             message: "Payment was successful",
             success: true

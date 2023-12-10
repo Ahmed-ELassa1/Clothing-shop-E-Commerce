@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import footer from "./footer.module.css";
 import payment from "../../img/payment.png";
 import Swal from "sweetalert2/dist/sweetalert2.all.min";
@@ -13,7 +13,7 @@ const Footer = () => {
         showConfirmButton: true,
         timer: 1500,
       });
-      setEmailInput("")
+      setEmailInput("");
     } else {
       Swal.fire({
         position: "center",
@@ -22,12 +22,8 @@ const Footer = () => {
         showConfirmButton: false,
         timer: 1500,
       });
-
     }
-
-    console.log(emailInput);
   }
-  useEffect(() => {}, []);
   return (
     <>
       <div className={" " + footer.footer}>

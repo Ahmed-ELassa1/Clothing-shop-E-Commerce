@@ -1,8 +1,9 @@
-
-import  axios  from 'axios';
-
+import axios from "axios";
 
 export const getProductData = async (id) => {
-    const {data} = await axios.get(`https://api.escuelajs.co/api/v1/products/${id}`);
-    return data;
-  };
+  const { data } = await axios.get(
+    `${window.location.origin}/data/Products.json`
+  );
+  const selectedProduct = data?.find((product) => product.id == id);
+  return selectedProduct;
+};

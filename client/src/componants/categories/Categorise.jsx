@@ -1,9 +1,9 @@
 import React from "react";
 import CateCss from "./categories.module.css";
 import { categories } from "../../data";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 const Categorise = () => {
-  const categ = [1,4,2]
+  const categ = ["jacket", "Pants", "sneakers"];
   return (
     <div>
       <div className="conatiner row mx-3 my-5">
@@ -13,7 +13,7 @@ const Categorise = () => {
             <div className={CateCss.card_content}>
               <h3>{categorie.title}</h3>
               <Link to={`/productlist/${categ[i]}`}>
-              <button>shop now</button>
+                <button>shop now</button>
               </Link>
             </div>
           </div>

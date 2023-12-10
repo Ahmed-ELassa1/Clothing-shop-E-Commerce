@@ -65,7 +65,6 @@ const Signin = () => {
     } else {
       setValidateError(valid.error.details);
     }
-    console.log(loginError);
   }
 
   async function signinWithGoogle(e) {

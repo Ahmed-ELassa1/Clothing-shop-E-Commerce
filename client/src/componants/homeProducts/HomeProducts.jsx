@@ -1,16 +1,14 @@
 import React, { useEffect } from "react";
 import product from "./products.module.css";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getProducts } from "./../../Reduc/productListSlice";
-import { getProductDetail } from "./../../Reduc/productDetailSlice";
 import { addProduct } from "../../Reduc/cartSlice";
 import { addProductToWish } from "../../Reduc/wishlist Redux";
 
 const HomeProducts = () => {
   let dispatch = useDispatch();
   let { productList } = useSelector((state) => state.productListSlice);
-let {categorie}= useParams()
   function handPurchase(id) {
     dispatch(
       addProduct({
@@ -21,28 +19,25 @@ let {categorie}= useParams()
   }
 
   function handleWishlist(id) {
-      dispatch(
-        addProductToWish({
-          id: id,
-        })
-      );
-    
+    dispatch(
+      addProductToWish({
+        id: id,
+      })
+    );
   }
   useEffect(() => {
-    console.log(categorie);
-    dispatch(getProducts(categorie));
+    dispatch(getProducts());
   }, []);
   return (
     <>
       <div className="w-100">
-        <div className={"row px-4 " + product.products_list}>
-          {productList != null
+        <div className={"row px-3 w-100 " + product.products_list}>
+          {productList.length
             ? productList
-                .map((products, i) => (
+                ?.map((products, i) => (
                   <div key={i} className={product.product}>
                     <div className={product.circle}></div>
-                    <img src={`${products.images[0]}`} alt="" />
-              
+                    <img src={`${products.image}`} alt="" />
                     <div
                       className={"col-md-3  col-sm-6 " + product.overly}
                     ></div>
@@ -55,7 +50,6 @@ let {categorie}= useParams()
                         ></i>
                       </div>
                       <Link
-                    
                         to={`/product/${products.id}`}
                         className="text-decoration-none"
                       >
@@ -63,7 +57,6 @@ let {categorie}= useParams()
                           <i className="fa-solid fa-magnifying-glass"></i>{" "}
                         </div>
                       </Link>
-
                       <div className={"m-2 " + product.icon_background}>
                         <i
                           onClick={() => handleWishlist(products.id)}
@@ -73,7 +66,7 @@ let {categorie}= useParams()
                     </div>
                   </div>
                 ))
-                .slice(1, 13)
+                .slice(0, 8)
             : ""}
         </div>
       </div>

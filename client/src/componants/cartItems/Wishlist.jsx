@@ -8,9 +8,7 @@ import { removeProductFromWish } from "../../Reduc/wishlist Redux";
 import { getProductData } from "./../../api/products-detail";
 
 const Wishlist = () => {
-  let { wishlistProducts } = useSelector(
-    (state) => state.wishlistRedux
-  );
+  let { wishlistProducts } = useSelector((state) => state.wishlistRedux);
 
   let [wishlistData, setWishlistData] = useState(
     JSON.parse(localStorage.getItem("wishlistProducts")) || []
@@ -29,25 +27,24 @@ const Wishlist = () => {
   }
 
   function deleteProucts(id) {
-    wishlistProducts = [
-      ...wishlistProducts.filter((item) => item.id != id),
-    ];
+    wishlistProducts = [...wishlistProducts.filter((item) => item.id != id)];
     localStorage.setItem("wishlistProducts", JSON.stringify(wishlistProducts));
     dispatch(
       removeProductFromWish({
         wishlistProducts: [...wishlistProducts],
       })
-      );
-      setWishlistData(wishlistProducts)
-      localStorage.setItem("wishlistProducts", JSON.stringify(wishlistProducts));
+    );
+    setWishlistData(wishlistProducts);
+    localStorage.setItem("wishlistProducts", JSON.stringify(wishlistProducts));
   }
 
   useEffect(() => {
-    Promise.all(wishlistProducts?.map((p) => getProductData(p?.id)))
-      .then((res) => {
+    Promise.all(wishlistProducts?.map((p) => getProductData(p?.id))).then(
+      (res) => {
         localStorage.setItem("wishlistProducts", JSON.stringify(res));
         setWishlistData(res);
-      })
+      }
+    );
   }, []);
   return (
     <>
@@ -58,12 +55,13 @@ const Wishlist = () => {
               key={i}
               className={"row mx-0 px-4 mb-4 " + cartCss.cart_one_product}
             >
-              <div className={"col-md-3 col-sm-6 text-center mb-4 " + cartCss.cart_product_img}>
-                <img
-                  src={whishlist.images?.[0]}
-                  alt=""
-                  className="w-75"
-                />
+              <div
+                className={
+                  "col-md-3 col-sm-6 text-center mb-4 " +
+                  cartCss.cart_product_img
+                }
+              >
+                <img src={whishlist.image} alt="" className="w-75" />
               </div>
               <div
                 className={"col-md-7 col-sm-12 " + cartCss.cart_product_details}
@@ -101,7 +99,12 @@ const Wishlist = () => {
           ))
         ) : (
           <>
-            <Card className={"my-4 d-flex  justify-content-center align-items-center "+ cartCss.wishlist_content}>
+            <Card
+              className={
+                "my-4 d-flex  justify-content-center align-items-center " +
+                cartCss.wishlist_content
+              }
+            >
               <Card.Title className="text-danger fs-3 text-capitalize">
                 your wishlist is empty
               </Card.Title>

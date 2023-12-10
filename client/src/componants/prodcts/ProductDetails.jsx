@@ -6,7 +6,7 @@ import { useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { getProductDetail } from "./../../Reduc/productDetailSlice";
-import { getProductData } from './../../api/products-detail';
+import { getProductData } from "./../../api/products-detail";
 import {
   addProduct,
   decreseQuantity,
@@ -40,10 +40,8 @@ const ProductDetails = () => {
 
   useEffect(() => {
     getProductData(id).then((res) => {
-      console.log(res);
       setProductDetails(res);
     });
-
   }, []);
   return (
     <>
@@ -55,22 +53,21 @@ const ProductDetails = () => {
                 "col-md-6 col-sm-12  mx-0 px-0 " + productDetail.product_img
               }
             >
-              {<img src={`${productDetails?.images?.[0]}`} alt="" className="" />}
+              {<img src={`${productDetails?.image}`} alt="" className="" />}
             </div>
             <div
-              className={
-                "col-md-6 col-sm-12 " + productDetail.product_content
-              }
+              className={"col-md-6 col-sm-12 " + productDetail.product_content}
             >
               <h2 className="text-uppercase">{productDetails?.title}</h2>
 
-              <h5 > {productDetails?.description}</h5>
+              <h5> {productDetails?.description}</h5>
               <h4 className="my-5">{`$ ${productDetails?.price}`}</h4>
 
               <div className=" row">
                 <div
                   className={
-                    "col-md-4 col-sm-12 d-flex mb-3 " + productDetail.product_colors
+                    "col-md-4 col-sm-12 d-flex mb-3 " +
+                    productDetail.product_colors
                   }
                 >
                   <p>color</p>

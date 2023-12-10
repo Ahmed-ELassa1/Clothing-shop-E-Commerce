@@ -37,20 +37,19 @@ const ShopingBag = () => {
 
   function purchaseSeccsee() {
     if (stripeToken != null) {
-     productsData = []
+      productsData = [];
       localStorage.removeItem("cartProducts");
       dispatch(
         removeProduct({
           products: [],
         })
-        );
-        setProductsData(JSON.parse(localStorage.getItem("cartProducts")));
-        console.log(productsData);
-      } else {
-        return;
-      }
-      localStorage.setItem("cartProducts", JSON.stringify(productsData));
+      );
       setProductsData(JSON.parse(localStorage.getItem("cartProducts")));
+    } else {
+      return;
+    }
+    localStorage.setItem("cartProducts", JSON.stringify(productsData));
+    setProductsData(JSON.parse(localStorage.getItem("cartProducts")));
   }
 
   function handleQuantites(type, id) {
@@ -101,7 +100,7 @@ const ShopingBag = () => {
     });
   }
   useEffect(() => {
-      purchaseSeccsee();
+    purchaseSeccsee();
     Promise.all(products?.map((p) => getProductData(p?.id))).then((res) => {
       const newProductsArr = res.map((p) => {
         const productQuan = products
@@ -132,7 +131,7 @@ const ShopingBag = () => {
                     "col-md-3 col-sm-6 text-center " + cartCss.cart_product_img
                   }
                 >
-                  <img src={carts.images?.[0]} alt="" className=" my-4" />
+                  <img src={carts.image} alt="" className=" my-4" />
                 </div>
                 <div
                   className={

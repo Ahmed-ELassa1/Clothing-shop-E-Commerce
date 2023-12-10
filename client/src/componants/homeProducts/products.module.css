@@ -16,6 +16,9 @@
     border-radius: 8px;
     flex: 1;
 }
+.products_list{
+    box-sizing: border-box;
+}
 .icons_container{
     position: absolute;
     z-index: 10;

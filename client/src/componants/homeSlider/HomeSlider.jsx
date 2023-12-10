@@ -1,13 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import sliderCss from "./slider.module.css";
 import { slideItems } from "../../data";
 import { Link } from "react-router-dom";
 import Carousel from "react-bootstrap/Carousel";
 
 const HomeSlider = () => {
-  useEffect(() => {
-    console.log();
-  }, []);
   return (
     <>
       <div className={sliderCss.slider}>
@@ -22,6 +19,7 @@ const HomeSlider = () => {
               <img
                 src={slide.imag}
                 className={"col-md-5 col-sm-12 " + sliderCss.img}
+                alt="slide.imag"
               />
               <Carousel.Caption>
                 <div
