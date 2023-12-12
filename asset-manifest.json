@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.css": "/Clothing-shop-E-Commerce/static/css/main.838ef743.css",
+    "main.js": "/Clothing-shop-E-Commerce/static/js/main.3c42db5e.js",
+    "static/js/787.fd39d11b.chunk.js": "/Clothing-shop-E-Commerce/static/js/787.fd39d11b.chunk.js",
+    "static/media/3.png": "/Clothing-shop-E-Commerce/static/media/3.d4866f03720fdd545fbd.png",
+    "static/media/fa-solid-900.ttf": "/Clothing-shop-E-Commerce/static/media/fa-solid-900.2877d54f94f30c5d563c.ttf",
+    "static/media/2.png": "/Clothing-shop-E-Commerce/static/media/2.5146c9e211d4515538ff.png",
+    "static/media/1.png": "/Clothing-shop-E-Commerce/static/media/1.803c401c983f7d0278bb.png",
+    "static/media/jean.jpg": "/Clothing-shop-E-Commerce/static/media/jean.150ce7c0ce13003911ce.jpg",
+    "static/media/fa-brands-400.ttf": "/Clothing-shop-E-Commerce/static/media/fa-brands-400.13e40630e5866f777de8.ttf",
+    "static/media/fa-solid-900.woff2": "/Clothing-shop-E-Commerce/static/media/fa-solid-900.bdb9e23299f9d1320a8b.woff2",
+    "static/media/register.jpeg": "/Clothing-shop-E-Commerce/static/media/register.ef0b880606549fd7bb18.jpeg",
+    "static/media/sign.jpeg": "/Clothing-shop-E-Commerce/static/media/sign.96697d39bda515b1edc9.jpeg",
+    "static/media/fa-brands-400.woff2": "/Clothing-shop-E-Commerce/static/media/fa-brands-400.7be2266f1be21c44ecd4.woff2",
+    "static/media/fa-regular-400.ttf": "/Clothing-shop-E-Commerce/static/media/fa-regular-400.146404900f7550a9719d.ttf",
+    "static/media/fa-regular-400.woff2": "/Clothing-shop-E-Commerce/static/media/fa-regular-400.8bedd7cfa43a6c358cdd.woff2",
+    "static/media/fa-v4compatibility.ttf": "/Clothing-shop-E-Commerce/static/media/fa-v4compatibility.6c0a7b774ffa1cf0a059.ttf",
+    "static/media/fa-v4compatibility.woff2": "/Clothing-shop-E-Commerce/static/media/fa-v4compatibility.497d535001197a9c5b38.woff2",
+    "index.html": "/Clothing-shop-E-Commerce/index.html",
+    "main.838ef743.css.map": "/Clothing-shop-E-Commerce/static/css/main.838ef743.css.map",
+    "main.3c42db5e.js.map": "/Clothing-shop-E-Commerce/static/js/main.3c42db5e.js.map",
+    "787.fd39d11b.chunk.js.map": "/Clothing-shop-E-Commerce/static/js/787.fd39d11b.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.838ef743.css",
+    "static/js/main.3c42db5e.js"
+  ]
+}
