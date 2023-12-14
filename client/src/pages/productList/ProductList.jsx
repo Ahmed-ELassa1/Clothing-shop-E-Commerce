@@ -63,11 +63,6 @@ const ProductList = () => {
   function handleSorting(e) {
     setSort(e.target.value);
     if (e.target.value == "price-high") {
-      console.log(e.target);
-      // const productsDsc = productListCategory.sort((a, b) => {
-      //   return a.price - b.price;
-      // });
-      // setSortedProducts(productsDsc);
     }
   }
 

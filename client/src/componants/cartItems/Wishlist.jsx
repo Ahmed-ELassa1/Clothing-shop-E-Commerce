@@ -9,7 +9,6 @@ import { getProductData } from "./../../api/products-detail";
 
 const Wishlist = () => {
   let { wishlistProducts } = useSelector((state) => state.wishlistRedux);
-
   let [wishlistData, setWishlistData] = useState(
     JSON.parse(localStorage.getItem("wishlistProducts")) || []
   );
@@ -45,7 +44,7 @@ const Wishlist = () => {
         setWishlistData(res);
       }
     );
-  }, []);
+  }, [wishlistData.length]);
   return (
     <>
       <div className={"w-100 px-4 "}>

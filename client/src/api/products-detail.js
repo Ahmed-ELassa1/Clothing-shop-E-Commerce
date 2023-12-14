@@ -1,9 +1,6 @@
-import axios from "axios";
+import productsData from "../data/Products";
 
-export const getProductData = async (id) => {
-  const { data } = await axios.get(
-    `${window.location.origin}/data/Products.json`
-  );
-  const selectedProduct = data?.find((product) => product.id == id);
+export const getProductData = (id) => {
+  const selectedProduct = productsData?.find((product) => product.id == id);
   return selectedProduct;
 };

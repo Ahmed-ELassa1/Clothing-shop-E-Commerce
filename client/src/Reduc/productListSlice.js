@@ -1,12 +1,11 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import axios from "axios";
+import productsData from "../data/Products";
 
 export let getProducts = createAsyncThunk(
   "productList/categories",
   async (id = 1) => {
     try {
-      let { data } = await axios.get(`${window.location.origin}/data/Products.json`);
-      return data;
+      return productsData;
     } catch (error) {
       throw error;
     }

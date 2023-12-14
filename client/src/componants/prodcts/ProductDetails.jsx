@@ -18,6 +18,7 @@ const ProductDetails = () => {
     (state) => state.cartSlice
   );
   const [productDetails, setProductDetails] = useState({});
+  const [productQuantity, setProductQuantity] = useState(1);
   let dispatch = useDispatch();
 
   let { id } = useParams();
@@ -25,23 +26,27 @@ const ProductDetails = () => {
   function handleQuantity(type) {
     if (type === "decrese") {
       dispatch(decreseQuantity());
+      if (productQuantity === 1) {
+        return;
+      }
+      setProductQuantity((pre) => pre - 1);
     } else if (type === "increse") {
       dispatch(increseQuantity());
+      setProductQuantity((pre) => pre + 1);
     }
   }
   function handPurchase() {
     dispatch(
       addProduct({
         id: id,
-        quantity: 1,
+        quantity: productQuantity,
       })
     );
   }
 
   useEffect(() => {
-    getProductData(id).then((res) => {
-      setProductDetails(res);
-    });
+    const data = getProductData(id);
+    setProductDetails(data);
   }, []);
   return (
     <>
@@ -97,7 +102,7 @@ const ProductDetails = () => {
                   >
                     -
                   </button>
-                  <p className="mx-2">{productQuantinty}</p>
+                  <p className="mx-2">{productQuantity}</p>
                   <button
                     name="increse"
                     onClick={(e) => handleQuantity(e.target.name)}

@@ -56,17 +56,15 @@ const ShopingBag = () => {
     setProductsData(JSON.parse(localStorage.getItem("cartProducts")));
     let selectedProduct = productsData.filter((p) => p.id == id);
     if (type === "increase") {
-      selectedProduct[0].quantity[0] =
-        Number(selectedProduct[0].quantity[0]) + 1;
+      selectedProduct[0].quantity = Number(selectedProduct[0].quantity) + 1;
       setProductsData(productsData, selectedProduct);
       localStorage.setItem("cartProducts", JSON.stringify(productsData));
       setProductsData(JSON.parse(localStorage.getItem("cartProducts")));
     } else if (type === "decrease") {
-      if (selectedProduct[0].quantity[0] == 1) {
+      if (selectedProduct[0].quantity == 1) {
         return;
       }
-      selectedProduct[0].quantity[0] =
-        Number(selectedProduct[0].quantity[0]) - 1;
+      selectedProduct[0].quantity = Number(selectedProduct[0].quantity) - 1;
       setProductsData(productsData, selectedProduct);
       localStorage.setItem("cartProducts", JSON.stringify(productsData));
       setProductsData(JSON.parse(localStorage.getItem("cartProducts")));
@@ -99,20 +97,30 @@ const ShopingBag = () => {
       text: "No Items In Your Cart To Buy....!",
     });
   }
-  useEffect(() => {
-    purchaseSeccsee();
-    Promise.all(products?.map((p) => getProductData(p?.id))).then((res) => {
-      const newProductsArr = res.map((p) => {
-        const productQuan = products
-          .filter((e) => e.id == p.id)
-          .map((e) => e.quantity);
-        p.quantity = productQuan;
-        return p;
+  async function getCartProducts() {
+    try {
+      const selectedProduct = [];
+      products?.map(async (p) => {
+        const productDetails = getProductData(p?.id);
+        const productQuantity = await products
+          .filter((e) => e?.id == p?.id)
+          .map((e) => e?.quantity);
+        selectedProduct.push({
+          ...productDetails,
+          quantity: Number(productQuantity[0]),
+        });
       });
-
-      setProductsData(newProductsArr);
-      localStorage.setItem("cartProducts", JSON.stringify(newProductsArr));
-    });
+      setProductsData(selectedProduct);
+    } catch (error) {
+      console.error("Error fetching product data:", error);
+    }
+  }
+  useEffect(() => {
+    if (JSON.parse(localStorage.getItem("cartProducts"))) {
+      setProductsData(JSON.parse(localStorage.getItem("cartProducts")));
+    }
+    purchaseSeccsee();
+    getCartProducts();
     setUser(JSON.parse(localStorage.getItem("user")));
   }, [stripeToken]);
 
@@ -139,10 +147,10 @@ const ShopingBag = () => {
                   }
                 >
                   <h3>
-                    product: <span>{carts.title} </span>
+                    product: <span>{carts?.title} </span>
                   </h3>
                   <h3>
-                    id: <span>{carts.id} </span>
+                    id: <span>{carts?.id} </span>
                   </h3>
                   {/* <p></p> */}
                   <h3>
@@ -156,16 +164,16 @@ const ShopingBag = () => {
                         name="decrease"
                         id={carts.id}
                         onClick={(e) => {
-                          handleQuantites(e.target.name, e.target.id);
+                          handleQuantites(e.target?.name, e.target?.id);
                         }}
                       >
                         -
                       </button>
-                      <p className="mx-2">{carts?.quantity[0]}</p>
+                      <p className="mx-2">{carts?.quantity}</p>
                       <button
                         name="increase"
                         onClick={(e) => {
-                          handleQuantites(e.target.name, carts.id);
+                          handleQuantites(e.target?.name, carts?.id);
                         }}
                       >
                         +
@@ -173,9 +181,9 @@ const ShopingBag = () => {
                     </div>
                   </div>
                   <div className="col-12 mt-0 justify-content-center align-items-center mb-5 ">
-                    <h3>${carts.price}</h3>
+                    <h3>${carts?.price}</h3>
                     <button
-                      onClick={() => deleteProuct(carts.id)}
+                      onClick={() => deleteProuct(carts?.id)}
                       className="btn  bg-danger text-uppercase fw-normal fs-5 mt-2 mb-0 mx-0 text-white"
                     >
                       remove
